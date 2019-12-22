@@ -3,6 +3,8 @@ Ragel-based C-parser for Dutch Smart Meter P1-data
 
 Author: Levien van Zon (levien at gnuritas.org)
 
+Esp-idf adaption by: Rob Bogie
+
 ## DSMR P1
 
 DSMR (Dutch Smart Meter Requirements) is a standard for "smart" utility meters used in The Netherlands. Meters that comply with DSMR have several interfaces, including:
@@ -19,7 +21,7 @@ Several versions of the official DSMR P1 standard are included in the `doc/` dir
 
 ## The Parser
 
-This repository contains a parser for DSMR data-telegrams, based on the [Ragel state machine compiler](http://www.colm.net/open-source/ragel/), as well as the DSMR P1 specification documents (in `doc/`) and an example program in C for reading and parsing DSMR-data from a serial port in Linux (on any other POSIX system such as BSD or MacOS). To compile the Ragel parser and the example program, you need to install the [Ragel](http://www.colm.net/open-source/ragel/) state machine compiler (on Debian, Ubuntu and derivatives, simply do: `sudo apt-get install ragel`, on other systems you can `git clone git://colm.net/ragel.git`) and run `./make.sh`. In principle this parser can also be adapted for use on microcontrollers, although I haven't tried this yet. 
+This repository contains a parser for DSMR data-telegrams, based on the [Ragel state machine compiler](http://www.colm.net/open-source/ragel/), as well as the DSMR P1 specification documents (in `doc/`) and an example program in C for reading and parsing DSMR-data from a serial port in Linux (on any other POSIX system such as BSD or MacOS). To compile the Ragel parser, you need to install the [Ragel](http://www.colm.net/open-source/ragel/) state machine compiler (on Debian, Ubuntu and derivatives, simply do: `sudo apt-get install ragel`, on other systems you can `git clone git://colm.net/ragel.git`).
 
 In addition to DSMR P1-telegrams, the parser can handle more general IEC 62056-21 telegram data, albeit with a very limited set of OBIS-objects, so that it can be used to obtain energy readings from many non-DSMR smart meters through the optical port. The parser has been tested with example data from all currently known versions of DSMR (2.2, 3.0, 4.x and 5.0.2), and with real data from a Landis-Gyr and Kaifa DSMR 4.2 electricity meters, in some cases with a slave gas meter connected. This code is open-source under the Apache 2.0 licence.
 

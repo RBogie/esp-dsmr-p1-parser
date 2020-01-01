@@ -564,7 +564,7 @@ long long int TST_to_time (struct parser *fsm, int arg_idx) {
 	dev_timeseries_counter_head = '(0-' digit+ ':24.2.1)(' timeseries_unit ')' @dev_timeseries_counter_head @clearargs;
 	dev_timeseries_counter_cold_head = '(0-' digit+ ':24.3.1)(' timeseries_unit ')'  @dev_timeseries_counter_cold_head @clearargs;
 	dev_timeseries_counterval = '(' fixedpoint ')' @dev_timeseries_counterval @clearargs;
-	dev_counter_timeseries = dev_timeseries_head dev_timeseries_counter_head dev_timeseries_counterval+ crlf;
+	dev_counter_timeseries = dev_timeseries_head dev_timeseries_counter_head crlf? dev_timeseries_counterval+ crlf;
 	dev_counter_cold_timeseries = dev_timeseries_head dev_timeseries_counter_cold_head dev_timeseries_counterval+ crlf;
 	
 	gas_id_old = '7-0:0.0.0(' idstr ')' crlf @gas_id_old;

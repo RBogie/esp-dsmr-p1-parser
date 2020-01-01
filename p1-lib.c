@@ -108,6 +108,7 @@ int telegram_parser_read_partial (telegram_parser *obj, const uint8_t* buff, con
 	obj->len += bytesToCopy;
 
 	if(foundEnd) {
+		obj->buffer[obj->len] = 0;
 		return telegram_parser_read(obj, NULL, 0);
 	}
 	return (obj->len == 0 || foundEnd) ? TELEGRAM_OK : TELEGRAM_INCOMPLETE;

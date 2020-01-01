@@ -25,7 +25,7 @@ typedef struct telegram_parser_struct {
 	struct dsmr_data_struct *data;			// Smart meter data structure
 	
 	size_t len;								// Telegram length
-	uint8_t buffer[BUFSIZE_TELEGRAM];		// Telegram buffer pointer
+	uint8_t buffer[BUFSIZE_TELEGRAM+1];		// Telegram buffer pointer
 
 	bool onLastLine;
 } telegram_parser;
